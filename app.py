@@ -842,14 +842,14 @@ elif nav_page == "Project Overview & Design":
     # 4. Live Demonstration Walkthrough Script
     st.markdown("### Live Demonstration Script (Speaking Guide)")
     with st.expander("Walkthrough Guide: Adding this -> Using this -> Predicting this", expanded=True):
-        st.markdown("""
+        st.markdown(r"""
         **Step 1: The Input ('We are adding this and this...')**
         - *Action:* On the 'Personalized Recommendations' tab, clear the profile or select the 'Sci-Fi' profile, or search and add 'Star Wars' (5.0) and 'Terminator 2' (5.0).
         - *Spoken:* 'Here in our UI, we are capturing user preference signals. Look at the active profile bar: we are adding this movie (Star Wars with 5.0) and this movie (Terminator 2 with 5.0). Under the hood, these ratings are converted into a 1,682-dimensional visible vector $v_0$. Ratings $\ge 3.0$ are thresholded as positive binary preferences ($1.0$), while an observation mask tracks which items were actually rated, preventing 93.7% missing entries from skewing inference.'
 
         **Step 2: The Core Model ('Then using this...')**
         - *Action:* Point to the sidebar showing 1,682 Visible Units, 100 Hidden Neurons, and the Gibbs parameter ($k=1$).
-        - *Spoken:* 'Now, using this trained Restricted Boltzmann Machine, the visible vector passes through our $1,682 \\times 100$ learned weight matrix $W$ to activate 100 hidden latent neurons via $P(h=1|v) = \\sigma(b + vW)$. These 100 hidden units compress abstract viewer taste factors like sci-fi world-building and action pacing. Then, using 1-step Gibbs Sampling (MCMC reconstruction), the activated hidden representation projects backward across $W^T$ to reconstruct probabilities across all 1,682 catalog items simultaneously via $P(v=1|h) = \\sigma(a + hW^T)$.'
+        - *Spoken:* 'Now, using this trained Restricted Boltzmann Machine, the visible vector passes through our $1,682 \times 100$ learned weight matrix $W$ to activate 100 hidden latent neurons via $P(h=1|v) = \sigma(b + vW)$. These 100 hidden units compress abstract viewer taste factors like sci-fi world-building and action pacing. Then, using 1-step Gibbs Sampling (MCMC reconstruction), the activated hidden representation projects backward across $W^T$ to reconstruct probabilities across all 1,682 catalog items simultaneously via $P(v=1|h) = \sigma(a + hW^T)$.'
 
         **Step 3: The Output ('I am predicting this...')**
         - *Action:* Scroll to the recommendation cards (e.g., The Empire Strikes Back, Star Trek).
